@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="circle.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="960px" height="480px" style="border:1px solid blue;"></canvas>
+</body>
+<script>
+    function createCircle() {
+        let c = document.getElementById("myCanvas")
+        let ctx = c.getContext("2d");
+        // tạo 1 hình tròn mới và xóa hính tròn cũ
+        // ctx.clearRect(0, 0, c.width, c.height);
+        let radius = Math.floor(Math.random()*95 + 5)
+        let circle = new Circle(200,200,radius);
+        let color = circle.getRandomColor();
+        ctx.beginPath();
+        ctx.arc(Math.floor(Math.random()*1268),Math.floor(Math.random()*668), circle.radius, 0, 2*Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+    setInterval(createCircle,500);
+    createCircle();
+</script>
+</html>
